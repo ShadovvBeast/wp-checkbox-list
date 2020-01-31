@@ -35,9 +35,9 @@ function wp_checkbox_list_enqueue() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'cl_checks';
     $user_id = get_current_user_id();
-    wp_localize_script( 'wp-checkbox-list-js', 'ajax_object', [
+    wp_localize_script( 'wp-checkbox-list-js', 'list_ajax_object', [
         'ajax_url' => admin_url( 'admin-ajax.php' ),
-        'checked' => $wpdb->get_results("SELECT * FROM $table_name WHERE user_id = $user_id ORDER BY item_id ASC")]);
+        'checked_items' => $wpdb->get_results("SELECT * FROM $table_name WHERE user_id = $user_id ORDER BY item_id ASC")]);
     wp_enqueue_style('wp-checkbox-list-style', plugins_url('wp-checkbox-list.css', __FILE__));
 }
 

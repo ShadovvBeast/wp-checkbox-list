@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     async function checkItem(item_id) {
-        await (await fetch(ajax_object.ajax_url, {
+        await (await fetch(list_ajax_object.ajax_url, {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
